@@ -4,6 +4,9 @@ jdk:
 
 dist: trusty
 
+services:
+  - mongodb
+
 #addons:
 #  sonarcloud:
 #    organization: "tianacleto1"
