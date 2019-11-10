@@ -24,7 +24,7 @@ public class ItemResource {
      * @return list of items
      */
     @GetMapping
-    public List<Item> getProductList() {
+    public List<Item> getItemList() {
         return itemService.getAllItems();
     }
 
