@@ -28,4 +28,6 @@ public class Item {
 
     @Range(min = 1, message = "Price can not be less or equal to 0!")
     private BigDecimal price;
+
+    private int quantity;
 }
