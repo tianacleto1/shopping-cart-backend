@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 @Getter @Setter @ToString
 @EqualsAndHashCode(exclude = {"name", "price"})
@@ -27,7 +26,6 @@ public class Item {
     @Indexed(name = "prodName")
     private String name;
 
-    @NotEmpty(message = "Price can not be empty!")
     @Range(min = 1, message = "Price can not be less or equal to 0!")
     private BigDecimal price;
 }
