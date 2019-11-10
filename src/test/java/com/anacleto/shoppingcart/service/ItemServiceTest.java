@@ -19,6 +19,7 @@ import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -80,6 +81,44 @@ public class ItemServiceTest {
 
         try {
             itemService.updateItem("id", itemMock);
+            fail("It should had thrown EmptyResultDataAccessException");
+        } catch (EmptyResultDataAccessException e) {
+            assertTrue(Objects.requireNonNull(e.getMessage()).contains("Incorrect result size: "));
+        }
+    }
+
+    @Test
+    public void whenGetItemByIdIsCalledAndItExistsOnDBThenItShouldReturnItTest() {
+        when(itemRepositoryMock.findById(any())).thenReturn(Optional.of(itemMock));
+
+        itemService.getItemById("id");
+
+        assertEquals("name", itemService.getItemById("id").get().getName());
+    }
+
+    @Test
+    public void whenGetItemByIdIsCalledAndItDoesNotExistsOnDBThenItShouldReturnEmptyTest() {
+        when(itemRepositoryMock.findById(any())).thenReturn(Optional.empty());
+
+        itemService.getItemById("id");
+
+        assertFalse(itemService.getItemById("id").isPresent());
+    }
+
+    @Test
+    public void whenRemoveItemIsCalledWithExistingIdItemOnDBThenItShouldDeleteTheItemTest() {
+        when(itemRepositoryMock.findById(any())).thenReturn(Optional.of(itemMock));
+        doNothing().when(itemRepositoryMock).deleteById(any());
+
+        itemService.deleteItem("id");
+    }
+
+    @Test
+    public void whenRemoveItemIsCalledWithNonExistingIdItemOnDBThenItShouldThrowExceptionTest() {
+        when(itemRepositoryMock.findById(any())).thenReturn(Optional.empty());
+
+        try {
+            itemService.deleteItem("id");
             fail("It should had thrown EmptyResultDataAccessException");
         } catch (EmptyResultDataAccessException e) {
             assertTrue(Objects.requireNonNull(e.getMessage()).contains("Incorrect result size: "));

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/shopping_cart/items")
@@ -28,7 +29,21 @@ public class ItemResource {
     }
 
     /**
-     * Endpoint receives a Item entity from request body
+     * Endpoint receives an idItem and query the db to recover it
+     *
+     * @param itemId
+     * @return item
+     */
+    @GetMapping("/{itemId}")
+    public ResponseEntity<Item> findItemById(@PathVariable String itemId) {
+        Optional<Item> itemOp = itemService.getItemById(itemId);
+
+        return itemOp.isPresent() ? ResponseEntity.ok().body(itemOp.get())
+                                  : ResponseEntity.notFound().build();
+    }
+
+    /**
+     * Endpoint receives an Item entity from request body
      * and passes it to service layer to be saved on DB.
      *
      * @param item
@@ -51,5 +66,11 @@ public class ItemResource {
     @PutMapping("/{itemId}")
     public ResponseEntity<Item> updateItem(@PathVariable String itemId, @Valid @RequestBody Item item) {
         return ResponseEntity.ok(itemService.updateItem(itemId, item));
+    }
+
+    @DeleteMapping("/{itemId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeItem(@PathVariable String itemId) {
+        itemService.deleteItem(itemId);
     }
 }
