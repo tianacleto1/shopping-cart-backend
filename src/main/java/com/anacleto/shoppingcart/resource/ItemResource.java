@@ -68,6 +68,11 @@ public class ItemResource {
         return ResponseEntity.ok(itemService.updateItem(itemId, item));
     }
 
+    /**
+     * Deletes an item based on whether it exists on DB
+     *
+     * @param itemId
+     */
     @DeleteMapping("/{itemId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeItem(@PathVariable String itemId) {
