@@ -7,14 +7,14 @@ dist: trusty
 services:
   - mongodb
 
-addons:
-  sonarcloud:
-    organization: "Tiago_Anacleto"
-    token:
-      secure: "TNvKs7YzptrAY42p3oBdTHVFGJ7+Gm4jXm2t5XDs6DPfGlt6qkj3bZBpRyTdFxLp0Enrbhhu196H6s6J5VZrxWmIsXdR+BQ57VwRkVm1NfvaoP5yqk6ta2cG7lex8dajIzsOazVEWCQCbpUMPPNQzOwGdOmCZrJKX247gtHxKXwJHkBIaHqDCd3REmecj8tUYgSEdcFBKzIOuNKOL6O5E9fbbcQLqRAoQe/oIKXfxzaNbnMBKyK4kX6xp5Pvkdd+gfEzoIp3fRk10W0U630pfR5NQazMLxUrZN6zqkpk5HkEdu+aX3Y509KEnmAClaBf1jA1m8CxmYx+T/lH5NlgqD8c0CK8ffLpWY3ePv6z/1qwByMXkbFNkoGKgq86js9M3nMZhGXHGTI7w3YL5+tYwT3cHMvUZ+aZ3PWIxGPCEANS7ZLoJwk6HcQa4/6qQcNbAQBH2t2o6jcZpWNMRZOJWs090busvcR1wqIBVoH3CPIwu8dXZqYX4wP29f5zFvkdsPj4wDRJepKVZlvJtuemUIAi+eGEV8o8mWs0tvZN1ygyv+6Eehwz+nGJnSNL3hvY1bbAnufliwp1CXpqvGGOftUmtFRI0eztENqqZ1wRHyJ5CeDQOA9i3/dVlXIw0NApDEACLACHALiv/SrhdGo61t3Pk/uqHt3Jsa0kuk6cI7c="
+#addons:
+#  sonarcloud:
+#    organization: "Tiago_Anacleto"
+#    token:
+#      secure: $SONAR_CLOUD
 
 script:
   # other script steps might be done before running the actual analysis
-  #- ./mvnw clean install -B
+  - ./mvnw clean install -B
   #- ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
-   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  # - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
