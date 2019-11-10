@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tianacleto1/shopping-cart-backend.svg?branch=master)](https://travis-ci.org/tianacleto1/shopping-cart-backend)
+
 Shopping Cart Backend App
 
 Technologies: 
