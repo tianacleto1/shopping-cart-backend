@@ -9,7 +9,7 @@ services:
 
 addons:
   sonarcloud:
-    organization: "Tiago_Anacleto"
+    organization: "tianacleto1"
     token:
       secure: $SONAR_TOKEN
 
