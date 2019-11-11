@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "Tiago_Anacleto"
     token:
-      secure: $SONAR_CLOUD
+      secure: $SONAR_TOKEN
 
 script:
   # other script steps might be done before running the actual analysis
