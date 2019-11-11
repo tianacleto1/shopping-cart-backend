@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tianacleto1/shopping-cart-backend.svg?branch=master)](https://travis-ci.org/tianacleto1/shopping-cart-backend)
+[![Build Status](https://travis-ci.org/tianacleto1/shopping-cart-backend.svg?branch=master)](https://travis-ci.org/tianacleto1/shopping-cart-backend) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.anacleto%3Ashopping-cart-app-backend&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.anacleto%3Ashopping-cart-app-backend) [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=com.anacleto%3Ashopping-cart-app-backend)](https://sonarcloud.io/dashboard?id=com.anacleto%3Ashopping-cart-app-backend)
 
 Shopping Cart Backend App
 
