@@ -7,14 +7,14 @@ dist: trusty
 services:
   - mongodb
 
-#addons:
-#  sonarcloud:
-#    organization: "Tiago_Anacleto"
-#    token:
-#      secure: $SONAR_CLOUD
+addons:
+  sonarcloud:
+    organization: "Tiago_Anacleto"
+    token:
+      secure: $SONAR_CLOUD
 
 script:
   # other script steps might be done before running the actual analysis
-  - ./mvnw clean install -B
+  #- ./mvnw clean install -B
   #- ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
-  # - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
