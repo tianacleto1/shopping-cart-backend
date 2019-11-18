@@ -14,6 +14,8 @@ After cloning navigate to the folder where you cloned the project and execute th
     cd target/
     java -jar shopping-cart-app-backend-1.0.0-SNAPSHOT.jar 
     
+Frontend project of this app: 
+    https://github.com/tianacleto1/shopping-cart-app-frontend
     
     
 
